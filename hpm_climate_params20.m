@@ -29,7 +29,7 @@ annppt_modifier = 0.;   % used in main code, set a default value.
 %-------------------------------
 %    Read in monthly climate data 
 %-------------------------------
-climForcingFile = 'HPM-20 input files\toolik_monthly_T_P.csv'; 
+climForcingFile = 'toolik_monthly_T_P.csv'; 
 % climForcingFile = name with specifics if making climate file
 T = readtable(climForcingFile);
 TA = table2array(T);
@@ -58,10 +58,10 @@ temp_forcing_mon = TA(index_forcing_start:index_forcing_end,5); % in C;
 % FOR MER BLEUE GFDL DRIVERS FROM ZACK
 % if (params.gfdl_model_flag < 1.5)
 %     precip_forcing_mon = precipforc_CM3(index_forcing_start:index_forcing_end) / 1000.;  % mm/mon to m/mon
-%     temp_forcing_mon = tsaforc_CM3(index_forcing_start:index_forcing_end) - 273.15;      % deg K to 캜
+%     temp_forcing_mon = tsaforc_CM3(index_forcing_start:index_forcing_end) - 273.15;      % deg K to 째C
 %  else
 %     precip_forcing_mon = precipforc_ESM2M(index_forcing_start:index_forcing_end) / 1000.;  % mm/mon to m/mon
-%     temp_forcing_mon = tsaforc_ESM2M(index_forcing_start:index_forcing_end) - 273.15;      % deg K to 캜
+%     temp_forcing_mon = tsaforc_ESM2M(index_forcing_start:index_forcing_end) - 273.15;      % deg K to 째C
 % end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,7 +78,7 @@ temp_forcing_mon = TA(index_forcing_start:index_forcing_end,5); % in C;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% permafrost thaw/refreeze small amp sinusoidal around ~0캜
+% permafrost thaw/refreeze small amp sinusoidal around ~0째C
 % del_T_thaw_freeze = zeros(49812,1);
 % index_vector = 1:1:49812;
 % del_T_thaw_freeze(9001:15000) = (index_vector(9001:15000) - index_vector(9001)) / ...
@@ -153,7 +153,7 @@ ann_temp_amp = 0; % site monthly temp amplitude (half max minus min)
 %  REC_annppt = REC_annppt / 1000. ; % convert mm/y to m/y  NOT NECESSARY
 
 
-% Mer Bleue reconstruction BUT 10캜 COLDER and 40% LESS PRECIPITATION!!!!
+% Mer Bleue reconstruction BUT 10째C COLDER and 40% LESS PRECIPITATION!!!!
 %    REC_anntemp = REC_anntemp + params.ann_temp_offset;
 %    REC_annppt = REC_annppt * exp(0.068 *(params.ann_temp - params.ann_temp_orig));
 
