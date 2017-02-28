@@ -237,14 +237,14 @@ end
 % **************
 % ARCTIC VERSION  
 % **************
-k_exp_temp = 4.;   % litter incubation temperature (°C)from Hobbie paper
+k_exp_temp = 4.;   % litter incubation temperature (Â°C)from Hobbie paper
 
 k_0 = k_exp .* (1 + 3 * k_exp);  %see spreadsheet 'simple decomp models.xls'; adjusts k_0 for m/m0 model of decay
 k_month_0 = k_0 / 0.411 / 12;  % convert 'per-0.4-yr' (Hobbie study) to 'per-year' to 'per-month'
 
 % ???   does this make sense (next line)?????
-% k_month_0 = k_0 / 12 * (2 + 3*exp(-ann_temp/9)).^(-(ann_temp - 10)/10);  % convert year at 6° (mer bleue) to year at 10° (ref)
-k_month_0 = k_month_0 * (2 + 3*exp(-k_exp_temp/9)).^(-(k_exp_temp - 10)/10);  % convert month at 4° (Hobbie incubation) to year at 10° (ref)
+% k_month_0 = k_0 / 12 * (2 + 3*exp(-ann_temp/9)).^(-(ann_temp - 10)/10);  % convert year at 6Â° (mer bleue) to year at 10Â° (ref)
+k_month_0 = k_month_0 * (2 + 3*exp(-k_exp_temp/9)).^(-(k_exp_temp - 10)/10);  % convert month at 4Â° (Hobbie incubation) to year at 10Â° (ref)
 
 % tt = 5; % years of decomp to match algorithms (5 is reasonable, i.e., long for litter bags)
 % k_0 = k_exp * (1 + ((exp(k_exp*tt) - 1) ./ (k_exp * tt) -1);
@@ -257,9 +257,9 @@ k_month_0 = k_month_0 * (2 + 3*exp(-k_exp_temp/9)).^(-(k_exp_temp - 10)/10);  % 
 % ONLY VASCULAR
 % NPP_rel   = NPP_rel .* vascular;
 
-max_npp = 0.75 * 2.25;   % approximate absolute maximum total NPP for all vegetation at mean annual T = 10°C, kg/m2/y
-                         % this if for TOOLIK (ann_temp = -10C=°C) to get final value of 0.75 kg/m2/y
-% max_npp = 3.23;        % approximate absolute maximum total NPP for all vegetation at mean annual T = 10°C, kg/m2/y
+max_npp = 0.75 * 2.25;   % approximate absolute maximum total NPP for all vegetation at mean annual T = 10Â°C, kg/m2/y
+                         % this if for TOOLIK (ann_temp = -10C=Â°C) to get final value of 0.75 kg/m2/y
+% max_npp = 3.23;        % approximate absolute maximum total NPP for all vegetation at mean annual T = 10Â°C, kg/m2/y
 % max_npp = 2.75;        % approximate maximum total NPP for all vegetation, kg/m2/y
 
 q10_npp = 1.5;   % see Julie Talbot email of 4 June 2014
@@ -342,7 +342,7 @@ OM_dens = 1300; % density of organic matter [kg/m3]
 % modifications June 2008 based on Lafleur et al. 2005 ET from Mer Bleue paper
 ET_wtd_1 = 0.1;   % WTD threshold for full ET (m)
 ET_wtd_2 = 0.5;   % WTD threshold for low ET (m)
-ET_wtd_3 = 1.5;   % min ET = ET_0 Ã· ET_wtd_3
+ET_wtd_3 = 1.5;   % min ET = ET_0 ÃƒÂ· ET_wtd_3
 ET_param = 1/(ET_wtd_2 - ET_wtd_1);   % linear drop in ET as WTD drops from ET_wtd_1 to ET_wtd_2
 
 ET_temp_sens = 0.05; % 5% change in ET per degree C (Brummer et al. 2011; Ag. For. Met. 153, 14-30)
@@ -395,7 +395,7 @@ end
 %  Radiocarbon
 % ****************************
 % READ IN ATMOSPHERIC DEL-14C AND INTERPOLATE TO ANNUAL atm_c14_infile_name_csv = 'atm_del_14C_20,000BP_to_2100_AD_RCP85_RCP45.csv';
-atm_c14_infile_name_csv = 'HPM-20 input files\atm_del_14C_20,000BP_to_2500_AD_RCP85_RCP45.csv'; % atm del14-C held constant for 2100-2500 (not realistic)
+atm_c14_infile_name_csv = 'atm_del_14C_20,000BP_to_2500_AD_RCP85_RCP45.csv'; % atm del14-C held constant for 2100-2500 (not realistic)
 % atm_c14_infile_name_csv = 'atm_del_14C.csv';
 atm_del_c14_time_series = importdata(atm_c14_infile_name_csv);
 
